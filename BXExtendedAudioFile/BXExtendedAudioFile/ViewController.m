@@ -65,7 +65,6 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* outputFilePath = [[paths lastObject] stringByAppendingPathComponent:@"music.mp3"];
     FILE* outputFile = fopen([outputFilePath cStringUsingEncoding:1], "wb");
-    NSLog(@"path:%@",outputFilePath);
     UInt32 sizePerBuffer = 32*1024;
     UInt32 framesPerBuffer = sizePerBuffer/sizeof(SInt16);
     
@@ -91,14 +90,11 @@
                outputBufferList.mBuffers[0].mData,
                framesCount);
         if (framesCount==0) {
-            printf("Done reading from input file\n");
+            NSLog(@"outputFile---- %@\n",outputFilePath);
             free(outputBuffer);
             outputBuffer = NULL;
-            //TODO:Add lame_encode_flush for end of file
-            return;
+            break;
         }
-        
-        //the 3rd parameter means number of samples per channel, not number of sample in pcm_buffer
         write = lame_encode_buffer_interleaved(lame,
                                                outputBufferList.mBuffers[0].mData,
                                                framesCount,
