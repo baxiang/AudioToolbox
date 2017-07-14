@@ -44,19 +44,18 @@
     _inputFormat.mBytesPerFrame = _inputFormat.mChannelsPerFrame* _inputFormat.mBytesPerFrame;
     _inputFormat.mBytesPerPacket =  _inputFormat.mFramesPerPacket*_inputFormat.mBytesPerFrame;
     
-    
-    UInt32 size =  sizeof(_inputFormat);
+
     ExtAudioFileSetProperty(_audioFileRef,
                             kExtAudioFileProperty_ClientDataFormat,
-                            size,
+                            sizeof(AudioStreamBasicDescription),
                             &_inputFormat),
 
-    [self startConvertMP3:_inputFormat ];
+    [self startConvertMP3:_inputFormat];
     
     // Do any additional setup after loading the view, typically from a nib.
 }
 -(void)startConvertMP3:(AudioStreamBasicDescription) inputFormat{
-    //Init lame and set parameters
+    
     lame_t lame = lame_init();
     lame_set_in_samplerate(lame, inputFormat.mSampleRate);
     lame_set_num_channels(lame, inputFormat.mChannelsPerFrame);
@@ -93,6 +92,8 @@
                framesCount);
         if (framesCount==0) {
             printf("Done reading from input file\n");
+            free(outputBuffer);
+            outputBuffer = NULL;
             //TODO:Add lame_encode_flush for end of file
             return;
         }
