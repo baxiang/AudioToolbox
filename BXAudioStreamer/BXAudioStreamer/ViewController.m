@@ -22,7 +22,7 @@
 
 @implementation ViewController
 
-void AudioFileStreamPropertyListenerProc(void *inClientData,AudioFileStreamID	inAudioFileStream,AudioFileStreamPropertyID	inPropertyID,AudioFileStreamPropertyFlags *	ioFlags)
+void audioFileStreamPropertyListenerProc(void *inClientData,AudioFileStreamID	inAudioFileStream,AudioFileStreamPropertyID	inPropertyID,AudioFileStreamPropertyFlags *	ioFlags)
 {
     ViewController *self  = (__bridge ViewController *)(inClientData);
     [self audioFileStreamPropertyListenerProc:inClientData inAudioFileStream:inAudioFileStream inPropertyID:inPropertyID ioFlags:ioFlags];
@@ -120,7 +120,7 @@ void audioQueueCallback(void * __nullable inUserData,AudioQueueRef inAQ,AudioQue
     free(inPacketDescriptions);
     _readPacketIndex += inPacketCount;
 }
-void AudioFileStreamPacketsProc(void *inClientData,UInt32 inNumberBytes,UInt32 inNumberPackets,const void *inInputData,AudioStreamPacketDescription	*inPacketDescriptions){
+void audioFileStreamPacketsProc(void *inClientData,UInt32 inNumberBytes,UInt32 inNumberPackets,const void *inInputData,AudioStreamPacketDescription	*inPacketDescriptions){
      ViewController *self  = (__bridge ViewController *)(inClientData) ;
      [self _storePacketsWithNumberOfBytes:inNumberBytes numberOfPackets:inNumberPackets inputData:inInputData packetDescriptions:inPacketDescriptions];
 }
@@ -128,7 +128,7 @@ void AudioFileStreamPacketsProc(void *inClientData,UInt32 inNumberBytes,UInt32 i
 - (void)viewDidLoad {
     [super viewDidLoad];
     _dataArray = [NSMutableArray arrayWithCapacity:0];
-    AudioFileStreamOpen((__bridge void * _Nullable)(self), AudioFileStreamPropertyListenerProc, AudioFileStreamPacketsProc, 0, &_audioFileStreamID);
+    AudioFileStreamOpen((__bridge void * _Nullable)(self), audioFileStreamPropertyListenerProc, audioFileStreamPacketsProc, 0, &_audioFileStreamID);
     NSURLSession *session  =  [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
     NSString *wavString = @"http://baxiang.qiniudn.com/VoiceOriginFile.wav";// wav文件
     NSString *mp3String = @"http://baxiang.qiniudn.com/chengdu.mp3";// mp3文件
