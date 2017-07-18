@@ -87,6 +87,7 @@ void audioQueueCallback(void * __nullable inUserData,AudioQueueRef inAQ,AudioQue
     }
     if (inPacketCount<=0) {
         AudioQueueStop(_outputQueue, false);
+        AudioFileStreamClose(_audioFileStreamID);
         return;
     }
     UInt32 totalSize = 0;

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C23C685F1F1CC7B3007C49D6 /* AWAudioQueueSimplePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C23C685E1F1CC7B3007C49D6 /* AWAudioQueueSimplePlayer.m */; };
 		C295F02B1F1899930005FEF9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C295F02A1F1899930005FEF9 /* main.m */; };
 		C295F02E1F1899930005FEF9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C295F02D1F1899930005FEF9 /* AppDelegate.m */; };
 		C295F0311F1899930005FEF9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C295F0301F1899930005FEF9 /* ViewController.m */; };
@@ -17,8 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C23C685D1F1CC7B3007C49D6 /* AWAudioQueueSimplePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWAudioQueueSimplePlayer.h; sourceTree = "<group>"; };
-		C23C685E1F1CC7B3007C49D6 /* AWAudioQueueSimplePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWAudioQueueSimplePlayer.m; sourceTree = "<group>"; };
 		C295F0261F1899930005FEF9 /* BXAudioStreamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BXAudioStreamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C295F02A1F1899930005FEF9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C295F02C1F1899930005FEF9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -61,8 +58,6 @@
 		C295F0281F1899930005FEF9 /* BXAudioStreamer */ = {
 			isa = PBXGroup;
 			children = (
-				C23C685D1F1CC7B3007C49D6 /* AWAudioQueueSimplePlayer.h */,
-				C23C685E1F1CC7B3007C49D6 /* AWAudioQueueSimplePlayer.m */,
 				C295F02C1F1899930005FEF9 /* AppDelegate.h */,
 				C295F02D1F1899930005FEF9 /* AppDelegate.m */,
 				C295F02F1F1899930005FEF9 /* ViewController.h */,
@@ -156,7 +151,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C23C685F1F1CC7B3007C49D6 /* AWAudioQueueSimplePlayer.m in Sources */,
 				C295F0311F1899930005FEF9 /* ViewController.m in Sources */,
 				C295F02E1F1899930005FEF9 /* AppDelegate.m in Sources */,
 				C295F02B1F1899930005FEF9 /* main.m in Sources */,
